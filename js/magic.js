@@ -10,17 +10,27 @@ for(var i=0;i<count;i++){
 		}
 	}
 }
+
+function clone(obj) {
+    if (null == obj || "object" != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+}
+
 var input = document.getElementById("input");
 var output = document.getElementById("output");
-var c2 = {
-	log: function(text){
+var c2 = clone(console);
+c2.log = function(text){
 		output.value+= text || "";
 		output.value+="\n";
-	},
-	refresh: function(){
+	};
+c2.refresh = function(){
 		output.value="";
-	}
-};
+	};
+
 function Scope(f){
 	this.main = new Function("var console = c2;\n"+f);
 	c2.refresh();
