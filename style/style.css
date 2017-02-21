@@ -1,0 +1,22 @@
+
+.input {
+  float: left;
+  width: 60%;
+  height: 100%;
+}
+
+.output {
+  float: right;
+  width: 40%;
+  height: 100%;
+}
+
+.input > textarea, .output > textarea {
+  width: 95%;
+  height: 100%;
+  padding-bottom: 50em;
+}
+
+.input > textarea {
+  overflow: hidden;
+}
